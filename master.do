@@ -1,7 +1,7 @@
 ******************************************************************************************************************************
 *
 *
-*	 Member of the project team (names): Smetanin Ilya, Milogradskiy Alexnadr, Rykov Andrei
+*	 Member of the project team (names): Smetanin Ilya, Milogradskiy Alexandr, Rykov Andrei
 *	 Academic group:				     BI 171
 *
 *	 Project title:						Research fo house pricing in US
