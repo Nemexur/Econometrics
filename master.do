@@ -36,6 +36,8 @@
 *	 bsmtcond 				General condition of the basement
 *	 miscfeature 	  		Miscellaneous feature not covered in other categories
 *	 saleprice 				The property's sale price in dollars
+*	 grlivarea				Above grade (ground) living area square feet
+*	 garagearea 			Size of garage in square feet
 *
 *
 ******************************************************************************************************************************
