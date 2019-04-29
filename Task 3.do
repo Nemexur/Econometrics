@@ -11,25 +11,25 @@
 
 use "data_171_6.dta", clear
 
-tab mssubclass
+tab mssubclass, sort
 graph hbar (count), over (mssubclass)
 
-tab overallqual
+tab overallqual, sort
 graph bar (count), over (overallqual) xsize(15.000)
 
-tab overallcond
+tab overallcond, sort
 graph bar (count), over (overallcond) xsize(15.000)
 
-tab yearbuilt
+tab yearbuilt, sort
 graph hbar (count), over(yearbuilt) ysize(18.000)
 
-tab proxtoroad
+tab proxtoroad, sort
 graph bar (count), over (proxtoroad)
 
 tab bldgtype
 graph bar (count), over (bldgtype)
 
-tab bsmtcond
+tab bsmtcond, sort
 graph bar (count), over (bsmtcond)
 
 tab miscfeature
@@ -44,6 +44,11 @@ twoway histogram miscval || kdensity miscval
 sum saleprice, d
 twoway histogram saleprice || kdensity saleprice
 
+sum garagearea, d
+twoway histogram garagearea || kdensity garagearea
+
+sum grlivarea, d
+twoway histogram grlivarea || kdensity grlivarea
 ********************************************
 * Part 1.2 Graphical Analysis
 * 	by Andrei
@@ -52,6 +57,8 @@ twoway histogram saleprice || kdensity saleprice
 use "data_171_6.dta", clear
 
 **Building box plots for pair of numeric and each categorical variables
+
+**** For Saleprice (the only dependent variable)
 
 graph box saleprice, over(mssubclass) xsize(20.000) scale(0.5)
 
@@ -69,7 +76,7 @@ graph box saleprice, over(bsmtcond) xsize(10.000)
 
 graph box saleprice, over(miscfeature) xsize(8.000) ysize(15.000)
 
-******
+****** For Miscval
 
 graph box miscval, over(mssubclass) xsize(20.000) scale(0.55)
 
@@ -87,11 +94,53 @@ graph box miscval, over(bsmtcond) xsize(7.000)
 
 graph box miscval, over(miscfeature) xsize(7.000)
 
+****** For Grlivarea
+
+graph box grlivarea, over(mssubclass) xsize(20.000) scale(0.5)
+
+graph box grlivarea, over(overallqual) xsize(15.000)
+
+graph box grlivarea, over(overallcond) xsize(15.000)
+
+graph hbox grlivarea, over(yearbuilt) ysize(20.000)
+
+graph box grlivarea, over(proxtoroad) xsize(7.000)
+
+graph box grlivarea, over(bldgtype) xsize(7.000)
+
+graph box grlivarea, over(bsmtcond) xsize(7.000)
+
+graph box grlivarea, over(miscfeature) xsize(7.000)
+
+****** For Garagearea
+
+graph box garagearea, over(mssubclass) xsize(20.000) scale(0.5)
+
+graph box garagearea, over(overallqual) xsize(15.000)
+
+graph box garagearea, over(overallcond) xsize(15.000)
+
+graph hbox garagearea, over(yearbuilt) ysize(20.000)
+
+graph box garagearea, over(proxtoroad) xsize(7.000)
+
+graph box garagearea, over(bldgtype) xsize(7.000)
+
+graph box garagearea, over(bsmtcond) xsize(7.000)
+
+graph box garagearea, over(miscfeature) xsize(7.000)
+
+
+
 ******
 **Building scatter plots 
-** for pair of dependent variable and each of independent variable
+** for pair of dependent variable and each of independent numeric variable
 
-twoway scatter saleprice mssubclass || lfit saleprice mssubclass
+twoway scatter saleprice miscval || lfit saleprice miscval
+
+twoway scatter saleprice grlivarea || lfit saleprice grlivarea
+
+twoway scatter saleprice garagearea || lfit saleprice garagearea
 
 // *****************************************************
 // Part 3: Hypothesis testing based on the descriptive statistics 
