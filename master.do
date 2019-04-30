@@ -53,9 +53,10 @@
 *	 Stage 2. Descriptive statistics 
 ******************************************************************************************************************************
 
-log using "", replace
+log using log_Task3.log, replace
 
+// Set your file path to Task 3.do
 do "Task 3.do"
 
-close log
+log close
 

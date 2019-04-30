@@ -6,6 +6,7 @@
 ** Building a bar plot for categorical variables (such as mssubclass) 
 **   and show some tabular data via tab function
 
+// Set your file path to data_171_6.dta
 use "data_171_6.dta", clear
 
 tab mssubclass, sort
@@ -50,8 +51,6 @@ twoway histogram grlivarea || kdensity grlivarea
 * Part 1.2 Graphical Analysis
 * 	by Andrei
 ********************************************
-
-use "data_171_6.dta", clear
 
 **Building box plots for pair of numeric and each categorical variables
 
