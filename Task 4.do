@@ -18,8 +18,12 @@ set seed 13
 gen random = uniform()
 // Sort dataset via random
 sort random
+
+count
+scalar total_count = r(N)
+
 // Generate byte variable which indicates training or validation row
-gen byte validation = _n <= 1460 * 0.2 
+gen byte validation = _n <= total_count * 0.2 
 
 // 4.3 Estimation of basic model
 
