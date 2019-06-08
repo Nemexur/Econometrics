@@ -49,7 +49,6 @@ reg log_saleprice log_garagearea log_grlivarea overallqual yearbuilt miscval pro
 imtest, white
 
 // Heteroscedasticity-robust standard error estimates
-// Просто записать ту же модель, что и в 4.3 для этого кейса
 reg log_saleprice log_garagearea log_grlivarea overallqual yearbuilt miscval proxtoroad bsmtcond bldgtype overallcond miscfeature if !validation, r
 
 //*****************************************************************
@@ -90,15 +89,13 @@ estat ovtest
 // 4.6 Alternative model specifications 
 //*****************************************************************
 
-// First Model
+// Second Model
 reg log_saleprice log_garagearea log_grlivarea overallqual yearbuilt bldgtype overallcond if !validation
 estat ic
 
-// Second Model
+// First (Full) Model
 reg log_saleprice log_garagearea log_grlivarea overallqual yearbuilt bsmtcond bldgtype overallcond miscfeature if !validation
 estat ic
-
-// Далее просто сравнить результат и сказать у какой из низ меньше AIC. Та у которой он меньше будет лучше
 
 //*****************************************************************
 // 4.7 Forecasting
