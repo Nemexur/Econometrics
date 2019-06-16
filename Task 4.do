@@ -105,5 +105,10 @@ estat ic
 reg log_saleprice log_garagearea log_grlivarea overallqual yearbuilt bldgtype overallcond if !validation
 predict y_hat if validation, xb
 
+// RMSE
+gen diff2 = (y_hat - log_saleprice) ^ 2 if validation
+sum(diff2)
+scalar sum_diff = r(sum)
+disp sqrt(sum_diff / (total_count * 0.2))
 // Restore command to undo all changes. Uncomment this line of code if you need
 // restore
